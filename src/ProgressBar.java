@@ -31,6 +31,5 @@ public class ProgressBar
 
         System.out.print("\r");
         System.out.print(bar);
-
     }
 }

@@ -13,7 +13,7 @@ public class CharacterVoxelView
     private int worldDimZ;
 
     public CharacterVoxelView(int worldX, int worldY, int worldZ, 
-        int width, int height)
+                              int width, int height)
     {
         this.viewWidth = width;
         this.viewHeight = height;
@@ -80,13 +80,13 @@ public class CharacterVoxelView
                                              [checkPoints[i][1]]
                                              [checkPoints[i][2]];
                         if(ch != ' ')
-			{
-			    foundChar = ch;
-			    break;
-			}
+                        {
+                            foundChar = ch;
+                            break;
+                        }
                     }
                 }
-				
+                
                 view[X][Y] = foundChar;
             }
         }
@@ -96,7 +96,7 @@ public class CharacterVoxelView
 
     public void drawBlock(int startX, int startY, int startZ,
                           int endX, int endY, int endZ,
-						  char ch)
+                          char ch)
     {
         for(int x = startX; x <= endX; x++)
         {

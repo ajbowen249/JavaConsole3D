@@ -19,32 +19,32 @@ public class VoxelField
     {
         return field;
     }
-	
-	public void setBlankBlockField()
-	{
-	    for(int x = 0; x < field.length; x++)
+    
+    public void setBlankBlockField()
+    {
+        for(int x = 0; x < field.length; x++)
+        {
+            for(int y = 0; y < field[0].length; y++)
             {
-                for(int y = 0; y < field[0].length; y++)
+                for(int z = 0; z < field[1].length; z++)
                 {
-                    for(int z = 0; z < field[1].length; z++)
-                    {
-                        field[x][y][z] = new BlockVoxel(false);
-                    }
+                    field[x][y][z] = new BlockVoxel(false);
                 }
             }
-	}
-	
-	public void setBlankCharField()
-	{
-	    for(int x = 0; x < xDim; x++)
+        }
+    }
+    
+    public void setBlankCharField()
+    {
+        for(int x = 0; x < xDim; x++)
+        {
+            for(int y = 0; y < yDim; y++)
             {
-                for(int y = 0; y < yDim; y++)
+                for(int z = 0; z < zDim; z++)
                 {
-                    for(int z = 0; z < zDim; z++)
-                    {
-                        field[x][y][z] = new CharacterVoxel();
-                    }
+                    field[x][y][z] = new CharacterVoxel();
                 }
             }
-	}
+        }
+    }
 }

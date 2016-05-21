@@ -119,15 +119,15 @@ public class Camera
         faceCardinal(dir);
     }
 
-	public void move(int xDelta, int yDelta, int zDelta)
-	{
-	    this.x += xDelta;
-		this.y += yDelta;
-		this.z += zDelta;
-		
-		faceCardinal(this.facing);
-	}
-	
+    public void move(int xDelta, int yDelta, int zDelta)
+    {
+        this.x += xDelta;
+        this.y += yDelta;
+        this.z += zDelta;
+        
+        faceCardinal(this.facing);
+    }
+    
     public int[] rayVector(int clipX, int clipY)
     {
         int xDelta = this.clipPlane[clipX][clipY][0] - this.x;
@@ -141,9 +141,9 @@ public class Camera
 
         return vector;
     }
-	
-	public static int[][] castRay(int[] slope, int startX, int startY, 
-                            int startZ, int maxLength)
+    
+    public static int[][] castRay(int[] slope, int startX, int startY, 
+                                  int startZ, int maxLength)
     {
         int maxComponent = 0;
         if(Math.abs(slope[1]) > Math.abs(slope[maxComponent])) maxComponent = 1;

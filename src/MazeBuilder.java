@@ -74,22 +74,23 @@ public class MazeBuilder
        int blockSize = 100;
        int blockHeight = 30;
        
-       char floorChar = (char)9619;
-       char ceilChar = (char)9618;
-       char wallChar = (char)9608;
+       //TODO: Looks like these are OS-dependent.
+       //Windows 7 needed unicode values, but
+       //10 switched to ASCII, or something.
+       char floorChar = (char)178;
+       char ceilChar = (char)177;
+       char wallChar = (char)219;
        char floorTrim = '=';
 
        int XDim = blockSize * this.width;
        int YDim = blockSize * this.height;
        int ZDim = blockHeight + 4;
 
-       CharacterVoxelView view = new CharacterVoxelView(XDim, YDim, ZDim, 
-                                                        75, 24);
+       CharacterVoxelView view = new CharacterVoxelView(XDim, YDim, ZDim, 75, 24);
 
        //draw floor and ceiling
        view.drawBlock(0, 0, 0, XDim - 1, YDim - 1, 2, ceilChar);
-       view.drawBlock(0, 0, ZDim - 3, XDim - 1, YDim - 1, ZDim - 1,
-                      floorChar);
+       view.drawBlock(0, 0, ZDim - 3, XDim - 1, YDim - 1, ZDim - 1, floorChar);
        
        //draw walls
        for(int X = 0; X < this.width; X++)
@@ -101,33 +102,32 @@ public class MazeBuilder
                if(c.northWall)
                {
                    view.drawBlock(blockSize * X, blockSize * Y, 0,
-                                 (blockSize * (X+1))-1, blockSize * Y, ZDim-1,
+                                  (blockSize * (X+1))-1, blockSize * Y, ZDim-1,
                                   wallChar);
                    view.drawBlock(blockSize * X, blockSize * Y, ZDim - 6,
-                                 (blockSize * (X+1))-1, blockSize * Y, ZDim-4,
-                                 floorTrim);
+                                  (blockSize * (X+1))-1, blockSize * Y, ZDim-4,
+                                  floorTrim);
                }
 
                if(c.southWall)
                {
                    view.drawBlock(blockSize * X, (blockSize*(Y+1))-1, 0, 
-                               (blockSize*(X+1))-1,(blockSize*(Y+1))-1,ZDim-1,
-                                wallChar);
+                                  (blockSize*(X+1))-1,(blockSize*(Y+1))-1,ZDim-1,
+                                  wallChar);
                }
-
 
                if(c.westWall)
                {
                    view.drawBlock(blockSize * X, blockSize * Y, 0,
-                                blockSize * X, (blockSize*(Y+1))-1, ZDim-1,
-                                wallChar);
+                                  blockSize * X, (blockSize*(Y+1))-1, ZDim-1,
+                                  wallChar);
                }
 
                if(c.eastWall)
                {
                    view.drawBlock((blockSize*(X+1))-1, blockSize * Y, 0,
-                              (blockSize*(X+1))-1, (blockSize*(Y+1))-1, ZDim-1,
-                               wallChar);
+                                  (blockSize*(X+1))-1, (blockSize*(Y+1))-1, ZDim-1,
+                                  wallChar);
                }
            }
        }
